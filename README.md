@@ -33,3 +33,24 @@ implemented.
 
 .......thank you........
 
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE = 'my-app-image'
+        DOCKER_TAG = 'latest'
+    }
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/Asam8385/3833_Asam_transactionApp.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+                }
+            }
+        }
+    }
+}
