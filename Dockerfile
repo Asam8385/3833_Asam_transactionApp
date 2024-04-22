@@ -14,4 +14,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your app using CMD which defines your runtime
-CMD [ "node", "transactionsewer.js" ]
+CMD [ "node", "transactionserver.js" ]
